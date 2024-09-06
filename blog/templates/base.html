@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Blog de Tuca{% endblock%}</title>
 
-        <link rel="shortcut icon" href="images/favicon.ico"/>
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
 
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
@@ -23,7 +23,7 @@
     <body>
         <!-- Navegação -->
         <nav>
-            <img src="images/if.png" alt="logo">
+            <img src="{% static "images/if.png" %}" alt="logo">
             <div class="navigation">
                 <ul>
                     <i id= "menu-close" class="fas fa-times"></i>
@@ -50,20 +50,6 @@
             </div>
         </footer>
 
-
-        <script>
-
-            $('#menu-btn').click(function(){
-                $("nav .navigation ul").addClass('active')
-            });
-
-            $('#menu-close').click(function(){
-                $("nav .navigation ul").removeClass('active')
-            });
-
-        </script>
-
-
+    <script src="{% static "script/main.js" %}"></script>
     </body>
-
 </html>

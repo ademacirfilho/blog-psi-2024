@@ -6,53 +6,29 @@
             <section id="Home" >
                 <h2>Impacto da tecnologia na Sexualidade e Saúde Sexual</h2>
                 <p>A pornografia pode ter um impacto significativo na vida dos jovens, principalmente devido à facilidade de acesso proporcionada pelas tecnologias modernas.
-                </p>
+                </p> 
                 <div class="btn">
                     <a class="blue" href="{% url 'post' %}">Saiba Mais</a>
                 </div>
             </section>
-
-            <!-- features -->
-
 
             <!-- Courses -->
             <section id="course">
             <h1>Notícias</h1>
                 <p>Quebrando o tabu da Sexualidade</p>
                 <div class="course-box">
-
+                    {% for noticia in noticias %}
                     <div class="courses">
-                        <img src="images/redes-sociais-vida sexual.jpg" alt="">
+                        <img src="{{ noticia.imagem.url }}" alt="">
                         <div class="details">                  
-                            <span>Postado 24/02/24</span>
-                            <h6>Redes sociais estão afetando a vida sexual</h6>                      
+                            <span>{{ noticia.data }}</span>
+                            <h6>{{ noticia.titulo }}</h6>                      
                         </div>
                         <div class="cost">
-                            <a href="https://www.terra.com.br/vida-e-estilo/saude/redes-sociais-estao-afetando-a-vida-sexual,51d786e39332df6352e2fe07933042c4x8sla7nw.html" target="_blank">Ver</a>
+                            <a href="{{ noticia.url }}" target="_blank">Ver</a>
                         </div>
                     </div>
-
-                    <div class="courses">
-                        <img src="images/carmo-dalla.jpg" alt="">
-                        <div class="details">
-                            <span>Postado há 2 semanas</span>
-                            <h6>Carmo Dalla Vecchia diz que vício em pornografia atrapalhou sua vida íntima</h6>
-                        </div>
-                        <div class="cost">
-                            <a href="https://f5.folha.uol.com.br/celebridades/2024/07/carmo-dalla-vecchia-diz-que-vicio-em-pornografia-atrapalhou-sua-vida-intima.shtml" target="_blank">Ver</a>  
-                        </div>
-                    </div>
-
-                    <div class="courses">
-                        <img src="images/orgasmo.jpg" alt="">
-                        <div class="details">
-                            <span>Postado 23/08/2023</span>
-                            <h6>Inteligência artificial recria imagem de orgasmos</h6>
-                        </div>
-                        <div class="cost">
-                            <a href="https://www.correiobraziliense.com.br/tecnologia/2023/08/5119333-inteligencia-artificial-recria-imagem-de-orgasmos.html" target="_blank">Ver</a>   
-                        </div>
-                    </div>
+                    {% endfor %}
             </section>
         {% endblock %}
 <script src="{% static 'script/main.js' %}"></script>
