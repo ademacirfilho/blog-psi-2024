@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Blog de Tuca{% endblock%}</title>
+
+        <link rel="shortcut icon" href="images/favicon.ico"/>
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+        <!-- Navegação -->
+        <nav>
+            <img src="images/if.png" alt="logo">
+            <div class="navigation">
+                <ul>
+                    <i id= "menu-close" class="fas fa-times"></i>
+                    <li><a class="active"href="{% url 'index' %}">Inicio</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'contact' %}">Quem somos?</a></li>
+                </ul>
+                <img id="menu-btn" src="images/menu.png" alt="">
+            </div>
+        </nav>
+
+        {% block content %}
+        {% endblock content %}
+
+        <!-- Footer -->
+        <footer>
+            <div class="copyrigth">
+                <p>Copyrigth 2024 Todos os direitos reservados a Turma de Infoweb3M</p>
+                <div class="pro-links">
+                    <i class="fab fa-facebook"></i>
+                    <a href="https://www.instagram.com/infoweb_2022/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </footer>
+
+
+        <script>
+
+            $('#menu-btn').click(function(){
+                $("nav .navigation ul").addClass('active')
+            });
+
+            $('#menu-close').click(function(){
+                $("nav .navigation ul").removeClass('active')
+            });
+
+        </script>
+
+
+    </body>
+
+</html>
