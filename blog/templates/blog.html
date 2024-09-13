@@ -19,7 +19,7 @@
                         
                         <h3>{{ post.titulo }}</h3>
                         <p>{{ post.descricao }}</p>
-                        <a href="https://www.youtube.com/live/wQU5CJpzw38?si=TM4VL8xlBzYD0Sxa" target="_blank">Vídeo sobre o assunto</a>
+                        <a href="{{ post.url }}" target="_blank">Vídeo sobre o assunto</a>
                     </div>
                     {% endfor %}
                 </div>
