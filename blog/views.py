@@ -18,6 +18,15 @@ def blog(request):
     }
     return render(request, "blog.html", context)
 
+def post(resquest, id):
+    post = Post.objects.get(pk=id)
+    
+    context = {
+        "post": post,
+    }
+
+    return render(resquest, "post.html", context)
+
 def contact(request):
     pessoas = Pessoa.objects.all()
 
@@ -25,6 +34,3 @@ def contact(request):
         "pessoas": pessoas    
         }
     return render(request, "contact.html", context)
-
-def post(resquest):
-    return render(resquest, "post.html")

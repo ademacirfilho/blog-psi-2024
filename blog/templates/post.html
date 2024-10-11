@@ -1,21 +1,38 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %} Blog {% endblock %}
     
     {% block content %}
-        <section id="blog-container">
-            <div class="blogs blogpost">
-                <div class="post">
-                    <img src="{% static 'images/pornografia.jpg' %}" alt="">
-                    <h3>A Era Digital e Seus Impactos na Sexualidade e Saúde Sexual: Uma Jornada Entre Benefícios e Desafios</h3>
-                    <p>
-                        A tecnologia se infiltrou em diversos aspectos da nossa vida, e a sexualidade não é exceção. Novas ferramentas e plataformas digitais surgem a todo momento, impactando a forma como nos relacionamos, exploramos nossa sexualidade e buscamos informações sobre saúde sexual.
-                        <br><br>
-                        Essa jornada na era digital traz consigo uma gama de oportunidades e desafios. De um lado, a facilidade de acesso à informação, a conexão com diversas comunidades e a possibilidade de explorar a sexualidade com segurança e discrição são alguns dos benefícios que a tecnologia oferece.
-                        
-                        É essencial respeitar tanto a orientação sexual quanto a identidade de gênero das pessoas, pois isso está diretamente relacionado ao direito de cada um viver de maneira autêntica.
-                       <br><br> 
-                       Por outro lado, conteúdos questionáveis, falta de confiabilidade em algumas fontes, desafios na garantia da privacidade e os riscos do consumo excessivo de pornografia são alguns dos pontos que exigem atenção e senso crítico.</p>
-                </div>
+    <section id="about-Home">
+        <h2>{{ post.titulo }}</h2>
+    </section>
+
+    <section id="blog-container">
+        <div class="blogs">
+            <div class="post">
+                {% if post.imagem %}
+                    <img src="{{ post.imagem.url }}" alt="">
+                {% else %}
+                    <img src="{% static 'placeholder.jpg' %}" alt="">
+                {% endif %}
+                
+                <h3>{{ post.titulo }}</h3>
+                <p>{{ post.conteudo }}</p>
+                <a href="{{ post.url }}" target="_blank">Vídeo sobre o assunto</a>
             </div>
-        </section>
+        </div>
+
+        <div class="cate">
+            <h2>Fontes</h2>
+            <hr>
+            <a href="https://jornal.usp.br/campus-ribeirao-preto/tecnologias-interativas-podem-contribuir-na-conscientizacao-de-jovens-sobre-sexo-seguro/" target="_blank">Jornal da USP</a>
+            <hr>
+            <a href="https://brasil.un.org/pt-br/149621-fundo-de-popula%C3%A7%C3%A3o-da-onu-amplia-acesso-servi%C3%A7os-de-sa%C3%BAde-sexual-e-reprodutiva-no-par%C3%A1" target="_blank">Nações Unidas Brasil</a>
+            <hr>
+            <a href="https://medium.com/casahacker/a-cultura-do-descarte-impactos-da-pornografia-digital-40e5a46c809d" target="_blank">Medium</a>
+            <hr>
+            <a href="https://www.jusbrasil.com.br/artigos/a-pornografia-de-vinganca-e-os-desafios-da-protecao-da-privacidade-online/407311374" target="_blank">Jus Brasil</a>
+            <hr>
+        </div>
+    </section>
     {% endblock content %}

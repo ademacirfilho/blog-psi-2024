@@ -3,6 +3,7 @@ from django.db import models
 class Post(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.TextField(max_length=500)
+    conteudo = models.TextField(max_length=2500)
     imagem = models.ImageField(blank=True)
     url = models.URLField(max_length=200, null=True)
 

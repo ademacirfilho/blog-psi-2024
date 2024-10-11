@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %} Blog {% endblock %}
 
         {% block content %}
             <section id="about-Home">
@@ -17,7 +18,7 @@
                             <img src="{% static 'placeholder.jpg' %}" alt="">
                         {% endif %}
                         
-                        <h3>{{ post.titulo }}</h3>
+                        <h3><a href="{% url 'post' id=post.id %}">{{ post.titulo }}</a></h3>
                         <p>{{ post.descricao }}</p>
                         <a href="{{ post.url }}" target="_blank">Vídeo sobre o assunto</a>
                     </div>
